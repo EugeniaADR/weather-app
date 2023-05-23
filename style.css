@@ -76,3 +76,12 @@ margin-top: 30px
         font-size: 26px;
         font-weight: bold;
     }
+
+    @media all and (max-width: 500px) {
+
+        #temp {
+            font-size: 50px;
+            text-shadow: 5px 5px black;
+
+        }
+      }
