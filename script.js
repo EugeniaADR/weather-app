@@ -6,6 +6,8 @@ const api = {
 const input = document.querySelector('#input')
 input.addEventListener("keydown", enter)
 
+const todaysDate = document.querySelector('#date')
+todaysDate = getOurDate()
 function enter(e) {
     if (e.keyCode === 13) { // if enter pressed starts the search function
         getInfo(input.value)
