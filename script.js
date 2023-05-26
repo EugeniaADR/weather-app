@@ -1,3 +1,4 @@
+
 const api = {
     baseUrl: "https://api.openweathermap.org/data/2.5/",
     key: "f2bfcb686bc97653b4f120c965a27f64"
@@ -6,8 +7,27 @@ const api = {
 const input = document.querySelector('#input')
 input.addEventListener("keydown", enter)
 
-const todaysDate = document.querySelector('#date')
-todaysDate = getOurDate()
+getOurDate()
+
+const localApi = {
+    url: "https://geolocation-db.com/json/",
+    apiKey:"f2e84010-e1e9-11ed-b2f8-6b70106be3c8"
+}
+localCity();
+
+async function localCity() {
+    const result = await fetch(`${localApi.url}${localApi.apiKey}`)
+    const resultReceived = await result.json()
+    displayCity(resultReceived)
+}
+
+function displayCity(resultReceived) {
+    let usersCity = document.querySelector('#city');
+    usersCity.textContent = `${resultReceived.city}, ${resultReceived.country_code}`
+    getInfo(resultReceived.city)
+}
+
+
 function enter(e) {
     if (e.keyCode === 13) { // if enter pressed starts the search function
         getInfo(input.value)
