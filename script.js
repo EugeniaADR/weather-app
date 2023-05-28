@@ -23,13 +23,13 @@ async function localCity() {
 
 function displayCity(resultReceived) {
     let usersCity = document.querySelector('#city');
-    usersCity.textContent = `${resultReceived.city}, ${resultReceived.country_code}`
+    usersCity.textContent = `${resultReceived.city}, ${resultReceived.state}, ${resultReceived.country_code}`
     getInfo(resultReceived.city)
 }
 
 
 function enter(e) {
-    if (e.keyCode === 13) { // if enter pressed starts the search function
+    if (e.keyCode === "Enter") { // if enter pressed starts the search function --Yoda)))
         getInfo(input.value)
     }
 }
